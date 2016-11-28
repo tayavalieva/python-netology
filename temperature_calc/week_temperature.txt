@@ -1,0 +1,6 @@
+Moscow
+-1 -2 -3 -4 -5 -6
+Nizhniy Novgorod
+-4 -1 -4
+Saint Petersburg
+-2 -3 -10 -7
