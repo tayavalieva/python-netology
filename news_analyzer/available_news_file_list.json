@@ -1,0 +1,6 @@
+{"news": 
+[{"file_name": "newsit.json", "encoding": "cp1251", "country": "Италия"}, 
+{"file_name": "newsafr.json", "encoding": "utf8", "country": "Африка"},
+{"file_name": "newscy.json", "encoding": "KOI8-R", "country":"Кипр"},
+{"file_name": "newsfr.json", "encoding": "ISO 8859-5", "country":"Франция"}
+]}
