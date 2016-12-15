@@ -19,7 +19,7 @@ from __future__ import print_function
 import glob
 import os.path
 
-migrations = 'Migrations'
+migrations = 'Advanced Migrations'
 
 files = glob.glob(os.path.join(migrations, "*.sql"))
 while True:
