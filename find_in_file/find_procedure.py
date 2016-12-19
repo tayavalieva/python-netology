@@ -23,13 +23,13 @@ migrations = 'Advanced Migrations'
 
 files = glob.glob(os.path.join(migrations, "*.sql"))
 while True:
-	files_list = []
-	print('Введите искомую сроку:')
-	search_request = str(input())
-	for data_file in files:
-		with open(data_file) as file:
-			file_content = file.read()
-			if search_request in file_content:
-				files_list.append(data_file)
-	print('Всего: %i' % len(files_list), *files_list, sep = '\n')
-	files = files_list
+    files_list = []
+    print('Введите искомую сроку:')
+    search_request = str(input())
+    for data_file in files:
+        with open(data_file) as file:
+            file_content = file.read()
+            if search_request in file_content:
+                files_list.append(data_file)
+    print('Всего: %i' % len(files_list), *files_list, sep='\n')
+    files = files_list
