@@ -6,9 +6,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 user_id = 'taya.valieva'
-
-session = vk.AuthSession(app_id='5894070', user_login='taya.skachkova@gmail.com', user_password='')
+app_id = '5894070'
+login = 'taya.skachkova@gmail.com'
+password = ''
+session = vk.AuthSession(app_id=app_id, user_login=login, user_password=password)
 api = vk.API(session)
+
 
 def get_fans_list(user_id):
     followers_list = api.users.getFollowers(user_ids = user_id)['items']
