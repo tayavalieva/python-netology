@@ -4,9 +4,9 @@ from vk.exceptions import VkAPIError
 import pandas as pd
 
 
-user_id = 'iamniketas'
-app_id = '5894070'
-login = 'taya.skachkova@gmail.com'
+user_id = ''
+app_id = ''
+login = ''
 password = ''
 session = vk.AuthSession(app_id=app_id, user_login=login, user_password=password)
 api = vk.API(session)
