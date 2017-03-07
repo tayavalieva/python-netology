@@ -2,10 +2,9 @@ import vk
 from requests import ReadTimeout
 from vk.exceptions import VkAPIError
 import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
 
-user_id = 'taya.valieva'
+
+user_id = 'iamniketas'
 app_id = '5894070'
 login = 'taya.skachkova@gmail.com'
 password = ''
@@ -13,8 +12,22 @@ session = vk.AuthSession(app_id=app_id, user_login=login, user_password=password
 api = vk.API(session)
 
 
+def get_followers_list(user_id):
+    followers_list = []
+    need_to_load = True
+    while need_to_load:
+        try:
+            offset = len(followers_list)
+            list_to_add = api.users.getFollowers(user_ids=user_id, offset=offset)['items']
+            followers_list.append(list_to_add)
+            need_to_load = len(list_to_add) > 0
+        except:
+            pass
+    return followers_list
+
+
 def get_fans_list(user_id):
-    followers_list = api.users.getFollowers(user_ids = user_id)['items']
+    followers_list = get_followers_list(user_id)
     friends_list = api.friends.get(user_ids = user_id)
     fans_list = followers_list + friends_list
     return fans_list
@@ -53,11 +66,14 @@ def create_dataframe(fans_groups_dict):
     df['GroupName'] = df['GroupID'].map(get_group_name)
     return df
 
-#df = create_dataframe(get_fans_groups_dict(get_fans_list(user_id)))
+df = create_dataframe(get_fans_groups_dict(get_fans_list(user_id)))
+df.to_json("groups.json")
+
+
 #df.to_csv('groups.csv', encoding="utf-8")
 
 #df = pd.read_csv("groups.csv")
-#df.to_json("groups.json")
+
 
 
 
