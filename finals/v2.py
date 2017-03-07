@@ -18,7 +18,7 @@ def get_followers_list(user_id):
         try:
             offset = len(followers_list)
             list_to_add = api.users.getFollowers(user_ids=user_id, offset=offset)['items']
-            followers_list.append(list_to_add)
+            followers_list += list_to_add
             need_to_load = len(list_to_add) > 0
         except:
             pass
